@@ -6,6 +6,8 @@ import CardItem from 'components/CardItem'
 import { getAllBlogs } from 'lib/api'
 
 export default function Home(props) {
+  const { blogs } = props
+
   return (
     <PageLayout>
       <AuthorIntro />
@@ -13,13 +15,15 @@ export default function Home(props) {
       <hr />
 
       <Row className='mb-5'>
-        <Col md='10'>
+        {/* <Col md='10'>
           <CardListItem />
-        </Col>
+        </Col> */}
 
-        <Col md='4'>
-          <CardItem />
-        </Col>
+        {blogs.map((blog) => (
+          <Col key={blog.slug} md='4'>
+            <CardItem title={blog.title} subtitle={blog.subtitle} />
+          </Col>
+        ))}
       </Row>
     </PageLayout>
   )
