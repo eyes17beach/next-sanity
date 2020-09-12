@@ -21,7 +21,13 @@ export default function Home(props) {
 
         {blogs.map((blog) => (
           <Col key={blog.slug} md='4'>
-            <CardItem title={blog.title} subtitle={blog.subtitle} />
+            <CardItem
+              date={blog.date}
+              title={blog.title}
+              author={blog.author}
+              image={blog.coverImage}
+              subtitle={blog.subtitle}
+            />
           </Col>
         ))}
       </Row>
