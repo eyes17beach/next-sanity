@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { Container } from 'react-bootstrap'
 import CustomNavbar from 'components/Navbar'
 
@@ -27,15 +28,21 @@ function Footer() {
 
 function PageLayout(props) {
   const { children, className } = props
-  
+
   return (
-    <Container>
-      <CustomNavbar />
-      <Content className={className}>
-        {children}
-      </Content>
-      <Footer />
-    </Container>
+    <>
+      <Head>
+        <link
+          href='https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap'
+          rel='stylesheet'
+        />
+      </Head>
+      <Container>
+        <CustomNavbar />
+        <Content className={className}>{children}</Content>
+        <Footer />
+      </Container>
+    </>
   )
 }
 
