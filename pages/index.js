@@ -27,6 +27,10 @@ export default function Home(props) {
               author={blog.author}
               image={blog.coverImage}
               subtitle={blog.subtitle}
+              link={{
+                href: 'blogs/[slug]',
+                as: `/blogs/${blog.slug}`,
+              }}
             />
           </Col>
         ))}
