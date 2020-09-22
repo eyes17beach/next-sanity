@@ -33,7 +33,7 @@ function CardItem(props) {
         </Card.Body>
       </div>
       {link && (
-        <Link href={link.href} as={link.as}>
+        <Link {...link}>
           <a className='card-button'>Read More</a>
         </Link>
       )}
