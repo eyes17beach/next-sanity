@@ -2,14 +2,14 @@ import { Row, Col } from 'react-bootstrap'
 import PageLayout from 'components/PageLayout'
 import BlogHeader from 'components/BlogHeader'
 import BlogContent from 'components/BlogContent'
-import { getBlogBySlug, getAllBlogs } from 'lib/api'
+import { getBlogBySlug, getAllBlogs, urlFor } from 'lib/api'
 
 function BlogDetail({ blog }) {
   return (
     <PageLayout className='blog-detail-page'>
       <Row>
         <Col md={{ span: 10, offset: 1 }}>
-          <BlogHeader {...blog} />
+          <BlogHeader {...blog} coverImage={urlFor(blog.coverImage).height(600).url()} />
           <hr />
           <BlogContent content={blog.content} />
         </Col>
