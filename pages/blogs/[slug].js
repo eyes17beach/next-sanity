@@ -9,7 +9,14 @@ function BlogDetail({ blog }) {
     <PageLayout className='blog-detail-page'>
       <Row>
         <Col md={{ span: 10, offset: 1 }}>
-          <BlogHeader {...blog} coverImage={urlFor(blog.coverImage).height(600).url()} />
+          <BlogHeader
+            {...blog}
+            coverImage={urlFor(blog.coverImage)
+              .height(600)
+              .crop('center')
+              .fit('clip')
+              .url()}
+          />
           <hr />
           <BlogContent content={blog.content} />
         </Col>
