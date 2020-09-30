@@ -1,4 +1,3 @@
-import useSWR from 'swr'
 import { useState } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import FilteringMenu from 'components/FilteringMenu'
@@ -7,15 +6,12 @@ import AuthorIntro from 'components/AuthorIntro'
 import PageLayout from 'components/PageLayout'
 import CardItem from 'components/CardItem'
 import { getAllBlogs } from 'lib/api'
-
-function fetcher(url) {
-  fetch(url).then((response) => response.json())
-}
+import { useGetBlogs } from 'actions'
 
 export default function Home({ blogs }) {
   const [filter, setFilter] = useState({ view: { list: 0 } })
 
-  const { data, error } = useSWR('/api/hello', fetcher)
+  const { data, error } = useGetBlogs()
 
   return (
     <PageLayout>
