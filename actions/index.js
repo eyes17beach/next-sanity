@@ -4,8 +4,12 @@ function fetcher(url) {
   fetch(url).then((response) => response.json())
 }
 
-function getHello() {
+function useGetHello() {
   return useSWR('/api/hello', fetcher)
 }
 
-export { getHello }
+function useGetBlogs() {
+  return useSWR('/api/blogs', fetcher)
+}
+
+export { useGetHello, useGetBlogs }
