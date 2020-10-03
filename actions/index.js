@@ -9,6 +9,6 @@ export function useGetHello() {
   return useSWR('/api/hello', fetcher)
 }
 
-export function useGetBlogs() {
-  return useSWR(`/api/blogs`, fetcher)
+export function useGetBlogs(initialData) {
+  return useSWR(`/api/blogs`, fetcher, { initialData })
 }
