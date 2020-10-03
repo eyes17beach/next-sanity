@@ -1,15 +1,14 @@
 import useSWR from 'swr'
 
-function fetcher(url) {
-  fetch(url).then((response) => response.json())
+export async function fetcher(url) {
+  const response = await fetch(url)
+  return response.json()
 }
 
-function useGetHello() {
+export function useGetHello() {
   return useSWR('/api/hello', fetcher)
 }
 
-function useGetBlogs() {
-  return useSWR('/api/blogs', fetcher)
+export function useGetBlogs() {
+  return useSWR(`/api/blogs`, fetcher)
 }
-
-export { useGetHello, useGetBlogs }
